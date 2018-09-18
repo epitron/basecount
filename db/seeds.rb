@@ -30,3 +30,5 @@ org_dixon_hall = Org.create!(name: 'Dixon Hall', description: 'A description for
 #   description: ''
 # )
 # Room.create!(site: site_schoolhouse, capacity: 40)
+
+# User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

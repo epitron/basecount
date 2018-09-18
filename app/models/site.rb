@@ -28,8 +28,7 @@ class Site < ApplicationRecord
   end
 
 
-
-  @@population_codes = [
+  POPULATION_CODES = [
     { id: 1, display: "Women" },
     { id: 2, display: "Men" },
     { id: 3, display: "Children" },
@@ -40,7 +39,7 @@ class Site < ApplicationRecord
 
   def populations
     self[:populations].map do |pop_id|
-      @@population_codes.find{ |popcode| popcode[:id] == pop_id }
+      POPULATION_CODES.find{ |popcode| popcode[:id] == pop_id }
     end
   end
 

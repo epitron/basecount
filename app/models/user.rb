@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include UserPermissionsHelper
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   def has_role?(role, site_or_org = nil)
     Role.user_has_role?(self,role,site_or_org)
+  end
+
+  def grant_role(role)
+    Role.grant_user_role(self, role)
   end
 
   def format_for_frontend
@@ -28,4 +32,5 @@ class User < ApplicationRecord
 
     frontend_value
   end
+
 end
